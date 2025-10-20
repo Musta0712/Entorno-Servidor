@@ -145,5 +145,49 @@
             echo "<p>Ciudad " . ($j + 1) . ": " . round($average, 2) . "ºC </p>";
         }
     ?>
+
+    <h2>Ejercicio 1: filterByType Recibe dos parámetros: un array y un tipo ("par", "impar", "primo",
+    "positivo", "negativo"). Devuelve un array con los elementos que cumplen la condición.</h2>
+
+    <?php
+
+    include 'functions/functionsAM.php';
+
+    $numbers = [1, 2, 3, 4, 5, -1, -2, -3, 0];
+    print_r(filterByType($numbers, 'par'));     
+    print_r(filterByType($numbers, 'impar'));   
+    print_r(filterByType($numbers, 'primo'));    
+    print_r(filterByType($numbers, 'positivo')); 
+    print_r(filterByType($numbers, 'negativo'));
+
+    ?>
+
+    <h2>Ejercicio 2: calculateStatistics: Recibe un array de números. Devuelve un array asociativo con
+    las claves media, mediana y moda, y los valores correspondientes a esos cálculos.</h2>
+
+    <?php
+
+    $numbers = [1, 2, 2, 3, 4, 4, 5, 8];  // aqui hay dos modas (2 y 4)
+    print_r(calculateStatistics($numbers));
+
+    ?>
+
+    <h2>Ejercicio 3: analizarPalabras: Recibe un texto y devuelve un array asociativo con las claves
+    number_of_words, longest_word, shortest_word.</h2>
+
+    <?php
+
+    $text = "El músculo con el nombre más largo es el esternocleidomastoideo";
+    $result = analizarPalabras($text);
+    print_r($result);
+
+    ?>
+
+    <h2>Ejercicio 4: convertTemperature: Recibe tres parámetros: una temperatura, la unidad de origen,
+    la unidad de destino ("celsius", "fahrenheit", "kelvin"). Devuelve la temperatura
+    convertida (o false si se escogió una unidad que no existe). En caso de no indicar
+    unidades, se considerará por defecto que la de origen es celsius y la de destino es
+    fahrenheit.</h2>
+
 </body>
 </html>
