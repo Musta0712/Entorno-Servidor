@@ -66,7 +66,7 @@ function calculateStatistics($array) {
 <?php
 function analizarPalabras($text) {
 
-    // Dividimos el texto en palabras usando espacios
+    // Dividimos el texto en palabras usando los espacios
     $words = explode(' ', trim($text));
     
     // Contamos cuántas palabras hay en el
@@ -95,6 +95,120 @@ function analizarPalabras($text) {
 }
 
 ?>
+
+<?php
+function convertTemperature($temp, $from = "celsius", $to = "fahrenheit") {
+
+    $from = strtolower($from);
+    $to = strtolower($to);
+
+    $valid = ["celsius", "fahrenheit", "kelvin"];
+    if (!in_array($from, $valid) || !in_array($to, $valid)) {
+        return false;
+    }
+
+    if ($from === $to) {
+        return $temp;
+    }
+
+    // Funciones para convertir de una unidad a otra directamente
+    $conversions = [
+        "celsius" => [
+            "fahrenheit" => fn($t) => $t * 9 / 5 + 32,
+            "kelvin" => fn($t) => $t + 273.15,
+        ],
+        "fahrenheit" => [
+            "celsius" => fn($t) => ($t - 32) * 5 / 9,
+            "kelvin" => fn($t) => ($t - 32) * 5 / 9 + 273.15,
+        ],
+        "kelvin" => [
+            "celsius" => fn($t) => $t - 273.15,
+            "fahrenheit" => fn($t) => ($t - 273.15) * 9 / 5 + 32,
+        ]
+    ];
+
+    return $conversions[$from][$to]($temp);
+}
+
+?>
+
+<?php
+
+/**
+ * Esta función recibe una clave simple y un array asociativo con valores numéricos.
+ * Si la clave existe en el array, devuelve el valor asociado multiplicado por 2.
+ * Si la clave no existe, devuelve la suma de todos los valores del array.
+ * 
+ * Parameters:
+ * - $key: un valor simple (int, string) que representa la clave a buscar en el array.
+ * - $assocArray: un array asociativo cuyos valores son numéricos.
+ * 
+ * Returns:
+ * - Si la clave existe, devuelve el valor asociado multiplicado por 2 
+ * - Si la clave no existe, devuelve la suma de todos los valores del array 
+ * @param mixed $key
+ * @param array $assocArray
+ * @return float|int
+ */
+function procesarDatos($key, array $assocArray) {
+    if (array_key_exists($key, $assocArray)) {
+        return $assocArray[$key] * 2;
+    } else {
+        return array_sum($assocArray);
+    }
+}
+?>
+
+<?php
+/**
+ * Formatear un precio decimal a formato "899,99 €"
+ * @param float $precio
+ * @return string
+ */
+function formatPrice(float $precio): string {
+    return number_format($precio, 2, ',', '') . ' €';
+}
+
+?>
+
+<?php
+/**
+ * Calcular el precio con IVA aplicado
+ * @param float $precio
+ * @param float $iva
+ * @return float|int
+ */
+function calculateIVA(float $precio, float $iva = 21.0): float {
+    return $precio * (1 + $iva / 100);
+}
+?>
+
+<?php
+/**
+ * Devolver el array con productos que tienen stock > 0
+ * @param array $productos
+ * @return array
+ */
+function getStock(array $productos): array {
+    return array_filter($productos, function($producto) {
+        return $producto['stock'] > 0;
+    });
+}
+?>
+
+<?php
+
+/**
+ * Summary of precioConDescuento
+ * @param float $precio
+ * @param float $descuento
+ * @return float|int
+ */
+function precioConDescuento(float $precio, float $descuento): float {
+    return $precio * (1 - $descuento / 100);
+}
+?>
+
 
 
 

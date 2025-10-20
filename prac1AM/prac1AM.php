@@ -146,7 +146,7 @@
         }
     ?>
 
-    <h2>Ejercicio 1: filterByType Recibe dos parámetros: un array y un tipo ("par", "impar", "primo",
+    <h2>Ejercicio 3.1: filterByType Recibe dos parámetros: un array y un tipo ("par", "impar", "primo",
     "positivo", "negativo"). Devuelve un array con los elementos que cumplen la condición.</h2>
 
     <?php
@@ -162,7 +162,7 @@
 
     ?>
 
-    <h2>Ejercicio 2: calculateStatistics: Recibe un array de números. Devuelve un array asociativo con
+    <h2>Ejercicio 3.2: calculateStatistics: Recibe un array de números. Devuelve un array asociativo con
     las claves media, mediana y moda, y los valores correspondientes a esos cálculos.</h2>
 
     <?php
@@ -172,7 +172,7 @@
 
     ?>
 
-    <h2>Ejercicio 3: analizarPalabras: Recibe un texto y devuelve un array asociativo con las claves
+    <h2>Ejercicio 3.3: analizarPalabras: Recibe un texto y devuelve un array asociativo con las claves
     number_of_words, longest_word, shortest_word.</h2>
 
     <?php
@@ -183,11 +183,84 @@
 
     ?>
 
-    <h2>Ejercicio 4: convertTemperature: Recibe tres parámetros: una temperatura, la unidad de origen,
+    <h2>Ejercicio 3.4: convertTemperature: Recibe tres parámetros: una temperatura, la unidad de origen,
     la unidad de destino ("celsius", "fahrenheit", "kelvin"). Devuelve la temperatura
     convertida (o false si se escogió una unidad que no existe). En caso de no indicar
     unidades, se considerará por defecto que la de origen es celsius y la de destino es
     fahrenheit.</h2>
+
+    <?php
+    echo convertTemperature(0, "celsius", "kelvin");  // 273.15
+    echo "<br>";
+    echo convertTemperature(32, "fahrenheit", "celsius"); // 0
+    echo "<br>";
+    echo convertTemperature(300, "kelvin", "fahrenheit"); // 80.33
+    echo "<br>";
+    echo convertTemperature(25); // 77 (celsius a fahrenheit por defecto)
+    ?>
+
+    <h2>Ejercicio 3.5: Inventa una función que reciba dos parámetros, uno de tipo simple (int, boolean,
+    float, string…) y otro que sea un array asociativo. La función no imprime nada, solo
+    devuelve valores. Inventa el funcionamiento de dicha función para que tenga
+    sentido. Explica lo que hace, qué significan los parámetros y qué valor devuelve, en
+    un comentario justo antes de la declaración de la función(PHP doc).</h2>
+
+    <?php
+    $datos = [
+    "manzana" => 10,
+    "pera" => 5,
+    "naranja" => 8
+    ];
+
+    echo procesarDatos("pera", $datos); // Devuelve 5 * 2 = 10
+    echo "<br>";
+    echo procesarDatos("manzana", $datos); // Devuelve 10 * 2 = 20
+    echo "<br>";
+    echo procesarDatos("platano", $datos); // Devuelve 10 + 5 + 8 = 23, porque no esta "platano".
+    ?>
+
+    <h2>Ejercicio 4. Arrays asociativos</h2>
+
+    <?php
+
+    include 'functions/shopAM.php';
+
+    // Ejemplo con el primer producto
+    echo "Precio" . formatPrice($productos['prod1']['precio']); // Muestra "899,99 €"
+    echo "<br>";
+    echo "IVA" . formatPrice($productos['prod1']['precio'] * 0.21); // Muestra "188,99 €"
+    echo "<br>";
+    echo "Precio con IVA" . formatPrice(calculateIVA($productos['prod1']['precio'])); // Muestra "1088,98 €"
+    echo "<br>";
+    // echo "Stock" . getStock($productos['prod1']); // No me funciona bien, luego lo miro
+
+    ?>
+
+    <?php
+
+// Mostrar tabla HTML
+echo "<table border='1' cellpadding='8' cellspacing='0'>";
+echo "<tr><th>Producto</th><th>Precio</th><th>Stock</th><th>Categoría</th></tr>";
+
+foreach ($productosConDescuento as $prod) {
+    echo "<tr>";
+    echo "<td>{$prod['nombre']}</td>";
+    echo "<td>";
+    if (isset($prod['descuento'])) {
+        $precioDesc = precioConDescuento($prod['precio'], $prod['descuento']);
+        echo "<span style='text-decoration: line-through; color: red;'>" . formatPrice($prod['precio']) . "</span> ";
+        echo "<span>" . formatPrice($precioDesc) . "</span>";
+    } else {
+        echo formatPrice($prod['precio']);
+    }
+    echo "</td>";
+    echo "<td>{$prod['stock']}</td>";
+    echo "<td>{$prod['categoria']}</td>";
+    echo "</tr>";
+}
+
+    echo "</table>";
+?>
 
 </body>
 </html>
