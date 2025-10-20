@@ -246,6 +246,7 @@ foreach ($productosConDescuento as $prod) {
     echo "<tr>";
     echo "<td>{$prod['nombre']}</td>";
     echo "<td>";
+    // He puesto el style directamente aqui porque no me funcionaba bien si lo hacia de la otra manera
     if (isset($prod['descuento'])) {
         $precioDesc = precioConDescuento($prod['precio'], $prod['descuento']);
         echo "<span style='text-decoration: line-through; color: red;'>" . formatPrice($prod['precio']) . "</span> ";
