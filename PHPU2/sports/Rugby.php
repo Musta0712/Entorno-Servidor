@@ -1,5 +1,6 @@
 <?php
-class Rugby extends Sport
+include_once $_SERVER["DOCUMENT_ROOT"] . "/PHPU2/sports/Sport.php";
+final class Rugby extends Sport
 {
     private string $teamName;
 
