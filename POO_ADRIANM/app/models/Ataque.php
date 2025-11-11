@@ -1,6 +1,6 @@
 <?php
 
-class Ataque {
+abstract class Ataque {
     private string $nombre;
     private int $poder;
     private int $precision;
@@ -61,14 +61,16 @@ class Ataque {
         return $this;
     }
 
-    public function mostrarInfo(): void {
+    public function mostarInfo(): void {
         echo "Ataque: {$this->nombre}, 
         Poder: {$this->poder}, 
         Precisión: {$this->precision}%, 
-        Tipo: {$this->tipo->getNombre()}<br>";
+        Tipo: {$this->tipo->getNombre()}<br/>";
     }
 
     public function editarDescripcion(string $nuevaDescripcion): void {
         $this->descripcion = $nuevaDescripcion;
     }
+
+    abstract public function mostrarDaño(): void;
 }

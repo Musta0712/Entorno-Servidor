@@ -8,11 +8,6 @@ class AtaqueEspecial extends Ataque {
         $this->energia = 100;
     }
 
-    public function mostrarInfo(): void {
-        parent::mostrarInfo();
-        echo "Consumo de energía: {$this->energia}<br>";
-    }
-
     public function getEnergia()
     {
         return $this->energia;
@@ -23,5 +18,10 @@ class AtaqueEspecial extends Ataque {
         $this->energia = $energia;
 
         return $this;
+    }
+
+    public function mostrarDaño(): void {
+        parent::mostrarDaño();
+        echo "Consumo de energía: {$this->energia}<br/>";
     }
 }

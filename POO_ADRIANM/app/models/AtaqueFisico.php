@@ -20,8 +20,9 @@ class AtaqueFisico extends Ataque {
         return $this;
     }
 
-    public function mostrarInfo(): void {
-        parent::mostrarInfo();
-        echo "Ataque de contacto: " . ($this->contacto ? "Sí" : "No") . "<br>";
+    public function mostrarDaño(): void {
+        parent::mostrarDaño();
+        $contactoStr = $this->contacto ? "Sí" : "No";
+        echo "Es de contacto: {$contactoStr}<br/>";
     }
 }
