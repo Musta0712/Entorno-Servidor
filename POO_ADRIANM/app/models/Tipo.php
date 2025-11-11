@@ -49,26 +49,29 @@ class Tipo {
 
     public function mostrarInfo(): void {
         echo "Tipo: {$this->nombre}<br>";
+        echo "Fuerte contra: " . implode(", ", $this->fuerteContra) . "<br>";
+        echo "Débil contra: " . implode(", ", $this->debilContra) . "<br>";
     }
 
     public function compararVentajas(Tipo $t): string {
-
         if (in_array($t->getNombre(), $this->fuerteContra)) {
             return "{$this->nombre} es fuerte contra {$t->getNombre()}.";
-
-        } else if (in_array($t->getNombre(), $this->debilContra)) {
+        } elseif (in_array($t->getNombre(), $this->debilContra)) {
             return "{$this->nombre} es débil contra {$t->getNombre()}.";
-
         } else {
             return "{$this->nombre} tiene ventaja neutral contra {$t->getNombre()}.";
         }
     }
 
     public function agregarDebilidad(Tipo $t): void {
-        $this->debilContra[] = $t->getNombre();
+        if (!in_array($t->getNombre(), $this->debilContra)) {
+            $this->debilContra[] = $t->getNombre();
+        }
     }
 
     public function agregarFortaleza(Tipo $t): void {
-        $this->fuerteContra[] = $t->getNombre();
+        if (!in_array($t->getNombre(), $this->fuerteContra)) {
+            $this->fuerteContra[] = $t->getNombre();
+        }
     }
 }

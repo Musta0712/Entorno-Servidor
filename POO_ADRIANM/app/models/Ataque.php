@@ -5,6 +5,7 @@ abstract class Ataque {
     private int $poder;
     private int $precision;
     private Tipo $tipo;
+    private string $descripcion = '';
 
     public function __construct(string $nombre, int $poder, int $precision, Tipo $tipo) {
         $this->nombre = $nombre;
@@ -61,7 +62,7 @@ abstract class Ataque {
         return $this;
     }
 
-    public function mostarInfo(): void {
+    public function mostrarInfo(): void {
         echo "Ataque: {$this->nombre}, 
         Poder: {$this->poder}, 
         Precisión: {$this->precision}%, 

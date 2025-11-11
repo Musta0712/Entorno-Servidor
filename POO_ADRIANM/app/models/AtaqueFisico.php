@@ -21,8 +21,8 @@ class AtaqueFisico extends Ataque {
     }
 
     public function mostrarDaño(): void {
-        parent::mostrarDaño();
+        echo "Daño físico: {$this->getPoder()} puntos<br/>";
         $contactoStr = $this->contacto ? "Sí" : "No";
         echo "Es de contacto: {$contactoStr}<br/>";
-    }
+}
 }

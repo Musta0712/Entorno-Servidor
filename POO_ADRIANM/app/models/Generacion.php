@@ -49,6 +49,6 @@ class Generacion {
     }
 
     public function mostrarInfo(): void {
-        echo "Generación " . $this->numero . ": " . $this->nombre . " (" . $this->region . ")\n";
+        echo "Generación " . $this->numero . ": " . $this->nombre . " (" . $this->region . ")<br/>";
     }
 }

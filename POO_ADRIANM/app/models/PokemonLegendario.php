@@ -4,36 +4,31 @@ class PokemonLegendario extends Pokemon {
     private string $ubicacion;
     private string $evento;
 
-    public function __construct(string $ubicacion, string $evento) {
+    public function __construct(string $nombre, int $numeroPokedex, string $descripcion, array $tipo, array $ataques, Generacion $generacion, string $ubicacion, string $evento) {
+        parent::__construct($nombre, $numeroPokedex, $descripcion, $tipo, $ataques, $generacion);
         $this->ubicacion = $ubicacion;
         $this->evento = $evento;
     }
 
-    public function getUbicacion()
-    {
+    public function getUbicacion(): string {
         return $this->ubicacion;
     }
 
-    public function setUbicacion($ubicacion)
-    {
+    public function setUbicacion(string $ubicacion): self {
         $this->ubicacion = $ubicacion;
-
         return $this;
     }
 
-    public function getEvento()
-    {
+    public function getEvento(): string {
         return $this->evento;
     }
 
-    public function setEvento($evento)
-    {
+    public function setEvento(string $evento): self {
         $this->evento = $evento;
-
         return $this;
     }
 
     public function mostrarCategoria(): void {
-        echo "Este Pokémon es legendario.\n";
+        echo "Este Pokémon es legendario.<br>";
     }
 }

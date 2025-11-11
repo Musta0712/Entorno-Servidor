@@ -21,7 +21,7 @@ class AtaqueEspecial extends Ataque {
     }
 
     public function mostrarDaño(): void {
-        parent::mostrarDaño();
+        echo "Daño especial: {$this->getPoder()} puntos<br/>";
         echo "Consumo de energía: {$this->energia}<br/>";
-    }
+}
 }
