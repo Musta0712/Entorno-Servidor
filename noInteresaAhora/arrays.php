@@ -71,7 +71,8 @@
             "DWES" => "Sete",
             "DWEC" => "Diego",
             "DIW" => "Marco",
-            "IPE" => "Santi"
+            "IPE" => "Santi",
+            "were" => "Ana"
         );
 
         echo "<p>Profes:</p>";
