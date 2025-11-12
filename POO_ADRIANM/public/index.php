@@ -18,7 +18,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/POO_ADRIANM/public/css/styles.css">
     <title>POO</title>
 </head>
 <body>
@@ -63,10 +63,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
 
         $tipos = [$normal, $fuego, $agua, $planta, $electrico, $hielo, $psiquico, $volador, $veneno, 
                 $roca, $siniestro, $acero, $bicho, $dragon, $hada, $lucha, $fantasma, $tierra];
+
         echo "<h2>Tipos Pokémon</h2>";
+        echo '<div class="tipos-grid">';
         foreach ($tipos as $tipo) {
+            echo '<div class="tipo-card ' . $tipo->getNombre() . '">';
             $tipo->mostrarInfo();
+            echo '</div>';
         }
+        echo '</div>';
         echo "<hr>";
 
 
@@ -79,15 +84,22 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
 
         $ataques = [$nitrocarga, $hidrobomba, $llamarada, $placaje];
         echo "<h2>Ataques Pokémon</h2>";
+        echo '<div class="ataques-grid">';
         foreach ($ataques as $ataque) {
+            $tipoAtaque = $ataque->getTipo()->getNombre();
+            echo '<div class="ataque-card ' . $tipoAtaque . '">';
             $ataque->mostrarInfo();
+            echo '</div>';
         }
+        echo '</div>';
         echo "<hr>";
 
         // --- CREAR GENERACION ---
         $gen1 = new Generacion(1, "Kanto", "Primera Generación");
         echo "<h2>Generación</h2>";
+        echo '<div class="generacion-card">';
         $gen1->mostrarInfo();
+        echo '</div>';
         echo "<hr>";
 
         // --- CREAR POKEMON INICIAL ---
@@ -110,15 +122,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         );
         $iniciales = [$charmander, $bulbasaur, $squirtle];
         echo "<h2>Pokémon Iniciales</h2>";
+        echo '<div class="pokemon-grid">';
         foreach ($iniciales as $p) {
+            echo '<div class="pokemon-card">';
             $p->mostrarInfo();
             $p->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
             foreach ($p->getAtaques() as $ataque) {
-                $ataque->mostrarInfo();
+                echo '<p>• ' . $ataque->getNombre() . '</p>';
             }
-            echo "<hr>";
+            echo '</div>';
         }
+        echo '</div>';
+        echo "<hr>";
 
         // --- CREAR POKEMON LEGENDARIO ---
         $articuno = new PokemonLegendario(
@@ -126,14 +142,20 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
             [$hielo, $volador = new Tipo("Volador", [], [])], [$hidrobomba],
             $gen1, "Islas de hielo", "Evento especial"
         );
-
-        echo "<h2>Pokémon Legendario</h2>";
-        $articuno->mostrarInfo();
-        $articuno->mostrarCategoria();
-        echo "<h4>Ataques:</h4>";
-        foreach ($articuno->getAtaques() as $ataque) {
-            $ataque->mostrarInfo();
+        $legendarios = [$articuno];
+        echo "<h2>Pokémon Legendarios</h2>";
+        echo '<div class="pokemon-grid">';
+        foreach ($legendarios as $p) {
+            echo '<div class="pokemon-card">';
+            $p->mostrarInfo();
+            $p->mostrarCategoria();
+            echo "<h4>Ataques:</h4>";
+            foreach ($p->getAtaques() as $ataque) {
+                echo '<p>• ' . $ataque->getNombre() . '</p>';
+            }
+            echo '</div>';
         }
+        echo '</div>';
         echo "<hr>";
 
         // --- CREAR POKEMON SALVAJE ---
@@ -141,21 +163,29 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
             "Pikachu", 25, "Pikachu, el Pokémon ratón eléctrico.",
             [$electrico], [$placaje, $rayo], $gen1, "Bosque de Viridian"
         );
-
+        $salvajes = [$pikachu];
         echo "<h2>Pokémon Salvaje</h2>";
-        $pikachu->mostrarInfo();
-        $pikachu->mostrarCategoria();
-        echo "<h4>Ataques:</h4>";
-        foreach ($pikachu->getAtaques() as $ataque) {
-            $ataque->mostrarInfo();
+        echo '<div class="pokemon-grid">';
+        foreach ($salvajes as $p) {
+            echo '<div class="pokemon-card">';
+            $p->mostrarInfo();
+            $p->mostrarCategoria();
+            echo "<h4>Ataques:</h4>";
+            foreach ($p->getAtaques() as $ataque) {
+                echo '<p>• ' . $ataque->getNombre() . '</p>';
+            }
+            echo '</div>';
         }
+        echo '</div>';
         echo "<hr>";
 
         // --- CREAR USUARIO ---
         $usuario1 = new Usuario(1, "Musta", "musta@pokemon.com", "gengar123");
         echo "<h2>Usuario</h2>";
-        echo "Nombre: " . $usuario1->getNombreUsuario() . "<br>";
-        echo "Email: " . $usuario1->getEmail() . "<br>";
+        echo '<div class="usuario-box">';
+        echo "<p><strong>Nombre:</strong> " . $usuario1->getNombreUsuario() . "</p>";
+        echo "<p><strong>Email:</strong> " . $usuario1->getEmail() . "</p>";
+        echo '</div>';
     ?>
 </body>
 </html>
