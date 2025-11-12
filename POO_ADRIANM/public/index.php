@@ -14,6 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
 ?>
 
 <!DOCTYPE html>
+                                                                <!--Miércoles 12 de Noviembre -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +24,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
 </head>
 <body>
     <?php
+                                                                // Martes 11 de Noviembre
             // --- CREAR TIPOS (18) ---
         $normal = new Tipo("Normal", ["Lucha"], []);
 
@@ -81,8 +83,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         $llamarada = new AtaqueEspecial("Llamarada", 90, 85, $fuego);
         $placaje = new AtaqueFisico("Placaje", 50, 100, $normal);
         $rayo = new AtaqueEspecial("Rayo", 90, 100, $electrico);
+        $pulsoDragon = new AtaqueEspecial("Pulso Dragón", 85, 90, $dragon);
+        //Para el articuno
+        $ventisca = new AtaqueEspecial("Ventisca", 110, 70, $hielo);
+        $rayoHielo = new AtaqueEspecial("Rayo Hielo", 90, 90, $hielo);
+        $liofilizacion = new AtaqueEspecial("Liofilización", 80, 90, $hielo);
+        $vendaval = new AtaqueEspecial("Vendaval", 120, 70, $volador);
 
-        $ataques = [$nitrocarga, $hidrobomba, $llamarada, $placaje];
+        $ataques = [$pulsoDragon, $rayo, $llamarada, $placaje];
         echo "<h2>Ataques Pokémon</h2>";
         echo '<div class="ataques-grid">';
         foreach ($ataques as $ataque) {
@@ -139,7 +147,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         // --- CREAR POKEMON LEGENDARIO ---
         $articuno = new PokemonLegendario(
             "Articuno", 144, "Articuno, Pokémon legendario de hielo y vuelo.",
-            [$hielo, $volador = new Tipo("Volador", [], [])], [$hidrobomba],
+            [$hielo, $volador = new Tipo("Volador", [], [])], [$ventisca, $rayoHielo, $liofilizacion, $vendaval],
             $gen1, "Islas de hielo", "Evento especial"
         );
         $legendarios = [$articuno];
@@ -178,6 +186,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         }
         echo '</div>';
         echo "<hr>";
+
 
         // --- CREAR USUARIO ---
         $usuario1 = new Usuario(1, "Musta", "musta@pokemon.com", "gengar123");
