@@ -50,13 +50,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         // Lo que hago en la linea de arriba es crear un array con todos los tipos creados para luego mostrarlos en pantalla.
 
         echo "<h2>Tipos Pokémon</h2>";
-        echo '<div class="tipos-grid">';
+        echo "<div class='tipos-grid'>";
         foreach ($tipos as $tipo) {
-            echo '<div class="tipo-card ' . $tipo->getNombre() . '">';
+            echo "<div class='tipo-card " . $tipo->getNombre() . "'>";
             $tipo->mostrarInfo();
-            echo '</div>';
+            echo "</div>";
         }
-        echo '</div>';
+        echo "</div>";
         echo "<hr>";
 
 
@@ -91,18 +91,20 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         // Hago lo mismo que con los tipos, crear un array con los ataques para luego mostrarlos en pantalla.
 
         echo "<h2>Ataques Pokémon</h2>";
-        echo '<div class="ataques-grid">';
+        echo "<div class='ataques-grid'>";
         foreach ($ataques as $ataque) {
             $tipoAtaque = $ataque->getTipo()->getNombre();
-            echo '<div class="ataque-card ' . $tipoAtaque . '">';
+            echo "<div class='ataque-card " . $tipoAtaque . "'>";
             $ataque->mostrarInfo();
-            echo '</div>';
+            echo "</div>";
         }
+
+
 
         // Lo que hago en el foreach de arriba es recorrer el array de ataques y mostrar su información dentro de una tarjeta 
         // cuyo color depende del tipo del ataque. CSS
 
-        echo '</div>';
+        echo "</div>";
         echo "<hr>";
 
 
@@ -112,11 +114,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         $gen3 = new Generacion(3, "Hoenn", "Tercera Generación");
 
         echo "<h2>Generación</h2>";
-        echo '<div class="generacion-card">';
+        echo "<div class='generacion-card'>";
         $gen1->mostrarInfo();
         $gen2->mostrarInfo();
         $gen3->mostrarInfo();
-        echo '</div>';
+        echo "</div>";
         echo "<hr>";
 
         //  CREAR POKEMON INICIAL 
@@ -143,19 +145,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         // Igual que en tipo y ataque, creo un array con los pokémon iniciales para luego mostrarlos en pantalla.
 
         echo "<h2>Pokémon Iniciales</h2>";
-        echo '<div class="pokemon-grid">';
+        echo "<div class='pokemon-grid'>";
         foreach ($iniciales as $x) {
-            echo '<div class="pokemon-card">';
+            echo "<div class='pokemon-card'>";
             $x->mostrarInfo();
             $x->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
             foreach ($x->getAtaques() as $ataque) {
-                echo '<p>• ' . $ataque->getNombre() . '</p>';
+                echo "<p>• " . $ataque->getNombre() . "</p>";
             }
-            echo '</div>';
+            echo "</div>";
             // Aqui lo que hago es recorrer el array de pokémon iniciales y mostrar su información, categoría y ataques.
         }
-        echo '</div>';
+        echo "</div>";
         echo "<hr>";
 
         //  CREAR POKEMON LEGENDARIO 
