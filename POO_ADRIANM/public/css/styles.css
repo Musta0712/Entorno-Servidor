@@ -15,7 +15,7 @@ Gradientes lineales:
 
 Grid layout:
     - display: grid; grid-template-columns: repeat(auto-fit, minmax(...));
-    - Autoajusta columnas según el ancho del contenedor y asegura diseño responsivo.
+    - Auto ajusta columnas según el ancho del contenedor y asegura diseño responsivo.
     - gap: define el espacio entre filas y columnas
 
 Transiciones y transformaciones:
