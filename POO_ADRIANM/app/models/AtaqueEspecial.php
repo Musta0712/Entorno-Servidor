@@ -20,6 +20,10 @@ class AtaqueEspecial extends Ataque {
         return $this;
     }
 
+    /**
+     * Summary of mostrarDaño
+     * @return void
+     */
     public function mostrarDaño(): void {
         echo "Daño especial: {$this->getPoder()} puntos<br/>";
         echo "Consumo de energía: {$this->energia}<br/>";

@@ -62,6 +62,10 @@ abstract class Ataque {
         return $this;
     }
 
+    /**
+     * Summary of mostrarInfo
+     * @return void
+     */
     public function mostrarInfo(): void {
         echo "Ataque: {$this->nombre}, 
         Poder: {$this->poder}, 
@@ -69,9 +73,26 @@ abstract class Ataque {
         Tipo: {$this->tipo->getNombre()}<br/>";
     }
 
+    /**
+     * Summary of editarDescripcion
+     * @param string $nuevaDescripcion
+     * @return void
+     */
     public function editarDescripcion(string $nuevaDescripcion): void {
         $this->descripcion = $nuevaDescripcion;
     }
 
+    /**
+     * Summary of calcularDañoBase
+     * @return int
+     */
+    public function calcularDañoBase(): int {
+        return intval(($this->poder * $this->precision) / 100);
+    }
+
+    /**
+     * Summary of mostrarDaño
+     * @return void
+     */
     abstract public function mostrarDaño(): void;
 }

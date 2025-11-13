@@ -60,4 +60,13 @@ class Usuario {
 
         return $this;
     }
+
+    /**
+     * Summary of contarUsuarios
+     * @param array $usuarios
+     * @return int
+     */
+    public static function contarUsuarios(array $usuarios): int {
+        return count($usuarios);
+    }
 }

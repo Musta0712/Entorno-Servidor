@@ -27,44 +27,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
                                                                 // Martes 11 de Noviembre
             // --- CREAR TIPOS (18) ---
         $normal = new Tipo("Normal", ["Lucha"], []);
-
         $fuego = new Tipo("Fuego", ["Agua"], ["Planta", "Hielo"]);
-
         $agua = new Tipo("Agua", ["Eléctrico", "Planta"], ["Fuego", "Roca"]);
-
         $planta = new Tipo("Planta", ["Fuego", "Hielo"], ["Agua", "Roca"]);
-
         $acero = new Tipo("Acero", ["Fuego", "Lucha", "Tierra"], ["Hada", "Hielo", "Roca"]);
-
         $bicho = new Tipo("Bicho", ["Fuego", "Volador", "Roca"], ["Planta", "Psíquico", "Siniestro"]);
-
         $dragon = new Tipo("Dragón", ["Hielo", "Dragón", "Hada"], ["Dragón"]);
-
         $electrico = new Tipo("Eléctrico", ["Tierra"], ["Agua", "Volador"]);
-
         $hada = new Tipo("Hada", ["Veneno", "Acero"], ["Lucha", "Dragón", "Siniestro"]);
-
         $lucha = new Tipo("Lucha", ["Volador", "Psíquico", "Hada"], ["Normal", "Roca", "Acero"]);
-
         $fantasma = new Tipo("Fantasma", ["Fantasma", "Siniestro"], ["Psíquico", "Fantasma"]);
-
         $hielo = new Tipo("Hielo", ["Fuego", "Lucha", "Roca", "Acero"], ["Planta", "Tierra", "Volador", "Dragón"]);
-
         $psiquico = new Tipo("Psíquico", ["Bicho", "Fantasma", "Siniestro"], ["Lucha", "Veneno"]);
-
         $volador = new Tipo("Volador", ["Eléctrico", "Hielo", "Roca"], ["Planta", "Lucha", "Bicho"]);
-
         $veneno = new Tipo("Veneno", ["Tierra", "Psíquico"], ["Planta", "Hada"]);
-
         $roca = new Tipo("Roca", ["Agua", "Planta", "Lucha", "Tierra", "Acero"], ["Fuego", "Hielo", "Volador", "Bicho"]);
-
         $siniestro = new Tipo("Siniestro", ["Lucha", "Bicho", "Hada"], ["Psíquico", "Fantasma"]);
-
         $tierra = new Tipo("Tierra", ["Agua", "Planta", "Hielo"], ["Fuego", "Eléctrico", "Veneno", "Roca", "Acero"]);
-
 
         $tipos = [$normal, $fuego, $agua, $planta, $electrico, $hielo, $psiquico, $volador, $veneno, 
                 $roca, $siniestro, $acero, $bicho, $dragon, $hada, $lucha, $fantasma, $tierra];
+        // Lo que hago en la linea de arriba es crear un array con todos los tipos creados para luego mostrarlos en pantalla.
 
         echo "<h2>Tipos Pokémon</h2>";
         echo '<div class="tipos-grid">';
@@ -77,7 +60,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         echo "<hr>";
 
 
-        // --- CREAR ATAQUES ---
+        //  CREAR ATAQUES 
         $nitrocarga = new AtaqueFisico("Nitrocarga", 50, 100, $fuego);
         $hidrobomba = new AtaqueEspecial("Hidrobomba", 110, 80, $agua);
         $llamarada = new AtaqueEspecial("Llamarada", 90, 85, $fuego);
@@ -85,14 +68,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         $rayo = new AtaqueEspecial("Rayo", 90, 100, $electrico);
         $pulsoDragon = new AtaqueEspecial("Pulso Dragón", 85, 90, $dragon);
         $terremoto = new AtaqueFisico("Terremoto", 100, 100, $tierra);
+
         //Para el articuno
         $ventisca = new AtaqueEspecial("Ventisca", 110, 70, $hielo);
         $rayoHielo = new AtaqueEspecial("Rayo Hielo", 90, 90, $hielo);
         $liofilizacion = new AtaqueEspecial("Liofilización", 80, 90, $hielo);
         $vendaval = new AtaqueEspecial("Vendaval", 120, 70, $volador);
 
-        $ataques = [$pulsoDragon, $rayo, $llamarada, $placaje, $hidrobomba, $terremoto];
+        //Para Entei
+        $fuegoSagrado = new AtaqueFisico("Fuego Sagrado", 100, 95, $fuego);
+        $velocidadExtrema = new AtaqueFisico("Velocidad Extrema", 80, 95, $normal);
+        $estallido = new AtaqueEspecial("Estallido", 150, 90, $fuego);
+        $triturar = new AtaqueFisico("Triturar", 80, 100, $siniestro);
 
+        //Para Kyogre
+        $pulsoPrimigenio = new AtaqueEspecial("Pulso Primigenio", 110, 85, $agua);
+        $salpicar = new AtaqueEspecial("Salpicar", 75, 100, $agua);
+        $frioPolar = new AtaqueEspecial("Frío Polar", 90, 90, $agua);
+        $acuaCola = new AtaqueFisico("Acua Cola", 90, 95, $agua);
+
+        $ataques = [$pulsoDragon, $rayo, $llamarada, $placaje, $hidrobomba, $terremoto];
+        // Hago lo mismo que con los tipos, crear un array con los ataques para luego mostrarlos en pantalla.
 
         echo "<h2>Ataques Pokémon</h2>";
         echo '<div class="ataques-grid">';
@@ -102,14 +98,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
             $ataque->mostrarInfo();
             echo '</div>';
         }
+
+        // Lo que hago en el foreach de arriba es recorrer el array de ataques y mostrar su información dentro de una tarjeta 
+        // cuyo color depende del tipo del ataque. CSS
+
         echo '</div>';
         echo "<hr>";
 
 
-        // --- CREAR GENERACION ---
+        //  CREAR GENERACION 
         $gen1 = new Generacion(1, "Kanto", "Primera Generación");
         $gen2 = new Generacion(2, "Johto", "Segunda Generación");
         $gen3 = new Generacion(3, "Hoenn", "Tercera Generación");
+
         echo "<h2>Generación</h2>";
         echo '<div class="generacion-card">';
         $gen1->mostrarInfo();
@@ -118,7 +119,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         echo '</div>';
         echo "<hr>";
 
-        // --- CREAR POKEMON INICIAL ---
+        //  CREAR POKEMON INICIAL 
         $charmander = new PokemonInicial(
             "Charmander", 4, "Charmander, el Pokémon lagartija de fuego.",
             [$fuego], [$nitrocarga, $llamarada], $gen1,
@@ -139,67 +140,88 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         );
 
         $iniciales = [$charmander, $chikorita, $mudkip];
+        // Igual que en tipo y ataque, creo un array con los pokémon iniciales para luego mostrarlos en pantalla.
+
         echo "<h2>Pokémon Iniciales</h2>";
         echo '<div class="pokemon-grid">';
-        foreach ($iniciales as $p) {
+        foreach ($iniciales as $x) {
             echo '<div class="pokemon-card">';
-            $p->mostrarInfo();
-            $p->mostrarCategoria();
+            $x->mostrarInfo();
+            $x->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
-            foreach ($p->getAtaques() as $ataque) {
+            foreach ($x->getAtaques() as $ataque) {
                 echo '<p>• ' . $ataque->getNombre() . '</p>';
             }
             echo '</div>';
+            // Aqui lo que hago es recorrer el array de pokémon iniciales y mostrar su información, categoría y ataques.
         }
         echo '</div>';
         echo "<hr>";
 
-        // --- CREAR POKEMON LEGENDARIO ---
+        //  CREAR POKEMON LEGENDARIO 
         $articuno = new PokemonLegendario(
             "Articuno", 144, "Articuno, Pokémon legendario de hielo y vuelo.",
             [$hielo, $volador = new Tipo("Volador", [], [])], [$ventisca, $rayoHielo, $liofilizacion, $vendaval],
+            // Lo que hago con la linea de arriba es crear un nuevo tipo volador para que no de error al pasarlo como tipo del pokemon.
             $gen1, "Islas de hielo", "Evento especial"
         );
-        $legendarios = [$articuno];
+
+        $entei = new PokemonLegendario(
+            "Entei", 244, "Entei, Pokémon legendario de fuego.",
+            [$fuego], [$fuegoSagrado, $velocidadExtrema, $estallido, $triturar], $gen2, "Volcán", "Evento especial"
+        );
+
+        $kyogre = new PokemonLegendario(
+            "Kyogre", 382, "Kyogre, Pokémon legendario de agua.",
+            [$agua], [$pulsoPrimigenio, $salpicar, $frioPolar, $acuaCola], $gen3, "Océano profundo", "Evento especial"
+        );
+
+        $legendarios = [$articuno, $entei, $kyogre];
+
         echo "<h2>Pokémon Legendarios</h2>";
         echo '<div class="pokemon-grid">';
-        foreach ($legendarios as $p) {
+        foreach ($legendarios as $x) {
             echo '<div class="pokemon-card">';
-            $p->mostrarInfo();
-            $p->mostrarCategoria();
+            $x->mostrarInfo();
+            $x->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
-            foreach ($p->getAtaques() as $ataque) {
+            foreach ($x->getAtaques() as $ataque) {
                 echo '<p>• ' . $ataque->getNombre() . '</p>';
             }
             echo '</div>';
+            //Lo que hago en el foreach de arriba es recorrer el array de pokémon legendarios y mostrar su información, categoría y ataques.
         }
         echo '</div>';
         echo "<hr>";
 
-        // --- CREAR POKEMON SALVAJE ---
+        //  CREAR POKEMON SALVAJE 
         $pikachu = new PokemonSalvaje(
             "Pikachu", 25, "Pikachu, el Pokémon ratón eléctrico.",
             [$electrico], [$placaje, $rayo], $gen1, "Bosque de Viridian"
         );
+
         $salvajes = [$pikachu];
+
         echo "<h2>Pokémon Salvaje</h2>";
         echo '<div class="pokemon-grid">';
-        foreach ($salvajes as $p) {
+        foreach ($salvajes as $x) {
             echo '<div class="pokemon-card">';
-            $p->mostrarInfo();
-            $p->mostrarCategoria();
+            $x->mostrarInfo();
+            $x->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
-            foreach ($p->getAtaques() as $ataque) {
+            foreach ($x->getAtaques() as $ataque) {
                 echo '<p>• ' . $ataque->getNombre() . '</p>';
             }
             echo '</div>';
+            //Lo que hago en el foreach de arriba es recorrer el array de pokémon salvajes y mostrar su información, categoría y ataques.
         }
         echo '</div>';
         echo "<hr>";
 
 
-        // --- CREAR USUARIO ---
+        //  CREAR USUARIO 
         $usuario1 = new Usuario(1, "Musta", "musta@pokemon.com", "gengar123");
+        
         echo "<h2>Usuario</h2>";
         echo '<div class="usuario-box">';
         echo "<p><strong>Nombre:</strong> " . $usuario1->getNombreUsuario() . "</p>";

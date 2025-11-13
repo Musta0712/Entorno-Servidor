@@ -89,15 +89,55 @@ abstract class Pokemon {
         return $this;
     }
 
+    /**
+     * Summary of mostrarInfo
+     * @return void
+     */
     public function mostrarInfo(): void {
         echo "<b>Pokémon #{$this->numeroPokedex} - {$this->nombre}</b><br>";
         echo "Generación: {$this->generacion->getNombre()} ({$this->generacion->getRegion()})<br>";
         echo "Descripción: {$this->descripcion}<br>";
     }
 
+    /**
+     * Summary of editarDescripcion
+     * @param string $nuevaDescripcion
+     * @return void
+     */
     public function editarDescripcion(string $nuevaDescripcion): void {
         $this->descripcion = $nuevaDescripcion;
     }
 
+    /**
+     * Summary of añadirAtaque
+     * @param Ataque $ataque
+     * @return void
+     */
+    public function añadirAtaque(Ataque $ataque): void {
+        $this->ataques[] = $ataque;
+    }
+
+    /**
+     * Summary of eliminarAtaque
+     * @param string $nombre
+     * @return void
+     */
+    public function eliminarAtaque(string $nombre): void {
+        $this->ataques = array_filter($this->ataques, fn($a) => $a->getNombre() !== $nombre);
+        // Lo que hago en la linea de arriba es filtrar el array de ataques dejando solo los ataques cuyo nombre sea diferente al que quiero eliminar.
+    }
+
+    /**
+     * Summary of __toString
+     * @return string
+     */
+    public function __toString(): string {
+        return "#{$this->numeroPokedex} {$this->nombre} ({$this->generacion->getNombre()})";
+    }
+
+    /**
+     * Summary of mostrarCategoria
+     * @return void
+     */
     abstract public function mostrarCategoria(): void; // Las subclases no tenian nada de info por eso puse esta
 }

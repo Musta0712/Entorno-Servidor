@@ -28,6 +28,10 @@ class PokemonLegendario extends Pokemon {
         return $this;
     }
 
+    /**
+     * Summary of mostrarCategoria
+     * @return void
+     */
     public function mostrarCategoria(): void {
         echo "Este Pokémon es legendario.<br>";
     }

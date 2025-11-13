@@ -48,6 +48,10 @@ class Generacion {
         return $this;
     }
 
+    /**
+     * Summary of mostrarInfo
+     * @return void
+     */
     public function mostrarInfo(): void {
         echo "Generación " . $this->numero . ": " . $this->nombre . " (" . $this->region . ")<br/>";
     }
