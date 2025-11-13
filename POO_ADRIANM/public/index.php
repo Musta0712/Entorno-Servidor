@@ -181,19 +181,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         $legendarios = [$articuno, $entei, $kyogre];
 
         echo "<h2>Pokémon Legendarios</h2>";
-        echo '<div class="pokemon-grid">';
+        echo "<div class='pokemon-grid'>";
         foreach ($legendarios as $x) {
-            echo '<div class="pokemon-card">';
+            echo "<div class='pokemon-card'>";
             $x->mostrarInfo();
             $x->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
             foreach ($x->getAtaques() as $ataque) {
-                echo '<p>• ' . $ataque->getNombre() . '</p>';
+                echo "<p>• " . $ataque->getNombre() . "</p>";
             }
-            echo '</div>';
+            echo "</div>";
             //Lo que hago en el foreach de arriba es recorrer el array de pokémon legendarios y mostrar su información, categoría y ataques.
         }
-        echo '</div>';
+        echo "</div>";
         echo "<hr>";
 
         //  CREAR POKEMON SALVAJE 
@@ -205,19 +205,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         $salvajes = [$pikachu];
 
         echo "<h2>Pokémon Salvaje</h2>";
-        echo '<div class="pokemon-grid">';
+        echo "<div class='pokemon-grid'>";
         foreach ($salvajes as $x) {
-            echo '<div class="pokemon-card">';
+            echo "<div class='pokemon-card'>";
             $x->mostrarInfo();
             $x->mostrarCategoria();
             echo "<h4>Ataques:</h4>";
             foreach ($x->getAtaques() as $ataque) {
-                echo '<p>• ' . $ataque->getNombre() . '</p>';
+                echo "<p>• " . $ataque->getNombre() . "</p>";
             }
-            echo '</div>';
+            echo "</div>";
             //Lo que hago en el foreach de arriba es recorrer el array de pokémon salvajes y mostrar su información, categoría y ataques.
         }
-        echo '</div>';
+        echo "</div>";
         echo "<hr>";
 
 
@@ -228,7 +228,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         echo '<div class="usuario-box">';
         echo "<p><strong>Nombre:</strong> " . $usuario1->getNombreUsuario() . "</p>";
         echo "<p><strong>Email:</strong> " . $usuario1->getEmail() . "</p>";
-        echo '</div>';
+        echo "</div>";
     ?>
 </body>
 </html>

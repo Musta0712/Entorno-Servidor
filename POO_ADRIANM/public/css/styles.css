@@ -3,49 +3,49 @@
 
 /*
 
-Estos comentarios son para poner las caracteristicas que he puesto en el css porque me he pasado un poco la verdad.
+Estos comentarios son para poner las caracteristicas que he puesto en el css porque me he pasado un poco la verdad (Hay cosas que he buscado por internet).
 
-    1. *Selector universal* (*) y box-sizing:
-        - * { margin: 0; padding: 0; box-sizing: border-box; }
-        - Normaliza márgenes y paddings, y hace que el ancho y alto incluyan padding y border
+*Selector universal* (*) y box-sizing:
+    - * { margin: 0; padding: 0; box-sizing: border-box; }
+    - Normaliza márgenes y paddings, y hace que el ancho y alto incluyan padding y border
 
-    2. Gradientes lineales:
-        - background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
-        - Permite transiciones suaves entre colores de fondo, con dirección angular
+Gradientes lineales:
+    - background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+    - Permite transiciones suaves entre colores de fondo, con dirección angular
 
-    3. Grid layout:
-        - display: grid; grid-template-columns: repeat(auto-fit, minmax(...));
-        - Autoajusta columnas según el ancho del contenedor y asegura diseño responsivo.
-        - gap: define el espacio entre filas y columnas
+Grid layout:
+    - display: grid; grid-template-columns: repeat(auto-fit, minmax(...));
+    - Autoajusta columnas según el ancho del contenedor y asegura diseño responsivo.
+    - gap: define el espacio entre filas y columnas
 
-    4. Transiciones y transformaciones:
-        - transition: transform 0.2s ease, box-shadow 0.2s ease;
-        - transform: translateY(-4px);
-        - Crea animaciones suaves en hover para tarjetas, levantándolas y cambiando sombra
+Transiciones y transformaciones:
+    - transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform: translateY(-4px);
+    Crea animaciones suaves en hover para tarjetas, levantándolas y cambiando sombra
 
-    5. Uso de pseudo-clases:
-        - .tipo-card:hover, .pokemon-card:hover
-        - Cambia estilos dinámicamente cuando el usuario pasa el cursor por encima
+Uso de pseudo-clases:
+    - .tipo-card:hover, .pokemon-card:hover
+    - Cambia estilos dinámicamente cuando el usuario pasa el cursor por encima
 
-    6. Colores dinámicos por tipo:
-        - .tipo-card.Fuego { background: #EE8130; }
-        - Asocia colores a clases dinámicamente generadas desde PHP para diferenciar tipos de Pokémon
+Colores dinámicos por tipo:
+    - tipo-card.Fuego { background: #EE8130; }
+    - Asocia colores a clases dinámicamente generadas desde PHP para diferenciar tipos de Pokémon
 
-    7. Bordes y sombreado:
-        - box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        - border-top: 5px solid #3b82f6;
-        - Añade profundidad visual y jerarquía a los elementos
+Bordes y sombreado:
+    - box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    - border-top: 5px solid #3b82f6;
+    - Añade profundidad visual y jerarquía a los elementos
 
-    8. Responsive design:
-        - @media (max-width: 768px) { ... }
-        - Ajusta padding y layout para pantallas más pequeñas
+Responsive design:
+    - @media (max-width: 768px) { ... }
+    - Ajusta padding y layout para pantallas más pequeñas
 
-    9. Tipografía avanzada:
-        - font-family: "Poppins", sans-serif;
-        - Usar fuentes externas con fallback, y control de tamaño dentro de tarjetas
+Tipografía avanzada:
+    - font-family: "Poppins", sans-serif;
+    - Usar fuentes externas con fallback, y control de tamaño dentro de tarjetas
 
-    10. Uso de variables de color semánticas implícitas:
-        - Se define un color distinto para cada tipo de Pokémon
+Uso de variables de color semánticas implícitas:
+    - Se define un color distinto para cada tipo de Pokémon
 
 */
 * {
