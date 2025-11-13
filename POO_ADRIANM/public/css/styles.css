@@ -257,7 +257,7 @@ body > h2 + * {
 }
 
 .pokemon-card {
-    background-color: rgb(231, 228, 228);
+    background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -267,6 +267,7 @@ body > h2 + * {
 .pokemon-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    background-color: rgb(222, 175, 236);
 }
 
 .pokemon-card h3 {
@@ -277,11 +278,6 @@ body > h2 + * {
 .pokemon-card p {
     margin-bottom: 6px;
 }
-
-.usuario-box strong {
-    color: #1e3a8a;
-}
-
                                                                                     /*Martes 11/11*/
 /*  GENERACIONES POKEMON  */
 .generacion-grid {
@@ -304,6 +300,7 @@ body > h2 + * {
 .generacion-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background-color: rgb(222, 175, 236);
 }
 
 .generacion-card h3 {
@@ -324,4 +321,14 @@ body > h2 + * {
     padding: 15px 20px;
     margin-top: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.usuario-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background-color: rgb(222, 175, 236);
+}
+
+.usuario-box strong {
+    color: #ec407a;
 }
