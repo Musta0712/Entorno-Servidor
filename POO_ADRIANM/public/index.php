@@ -132,10 +132,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         );
 
         $mudkip = new PokemonInicial(
-        "Mudkip", 258, "Mudkip, el Pokémon pez de tierra.",
-        [$agua, $tierra], [$hidrobomba, $terremoto], $gen3,
-        "Marshtomp", $agua
-        
+            "Mudkip", 258, "Mudkip, el Pokémon pez de tierra.",
+            [$agua, $tierra], [$hidrobomba, $terremoto], $gen3,
+            "Marshtomp", $agua
+
         );
 
         $iniciales = [$charmander, $chikorita, $mudkip];
