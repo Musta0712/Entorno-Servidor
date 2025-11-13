@@ -112,9 +112,9 @@ hr {
     padding: 15px;
     text-align: center;
     font-weight: 600;
-    color: #1e3a8a;
-    border-top: 5px solid red;
+    border-top: 5px solid #ec407a;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #000;
 }
 
 .tipo-card:hover {
@@ -123,24 +123,24 @@ hr {
 }
 
 /*  Colores por tipo  */
-.tipo-card.Normal { background: #A8A77A; }
-.tipo-card.Fuego { background: #EE8130; }
-.tipo-card.Agua { background: #6390F0; }
-.tipo-card.Planta { background: #7AC74C; }
-.tipo-card.Eléctrico { background: #F7D02C; color: #000; }
-.tipo-card.Hielo { background: #96D9D6; color: #000; }
-.tipo-card.Lucha { background: #C22E28; }
-.tipo-card.Veneno { background: #A33EA1; }
-.tipo-card.Tierra { background: #E2BF65; color: #000; }
-.tipo-card.Volador { background: #A98FF3; }
-.tipo-card.Psíquico { background: #F95587; }
-.tipo-card.Bicho { background: #A6B91A; color: #000; }
-.tipo-card.Roca { background: #B6A136; color: #000; }
-.tipo-card.Fantasma { background: #735797; }
-.tipo-card.Dragón { background: #6F35FC; }
-.tipo-card.Siniestro { background: #705746; }
-.tipo-card.Acero { background: #B7B7CE; color: #000; }
-.tipo-card.Hada { background: #D685AD; }
+.tipo-card.Normal { background: #A8A77A;}
+.tipo-card.Fuego { background: #EE8130;}
+.tipo-card.Agua { background: #6390F0;}
+.tipo-card.Planta { background: #7AC74C;}
+.tipo-card.Eléctrico { background: #F7D02C;}
+.tipo-card.Hielo { background: #96D9D6;}
+.tipo-card.Lucha { background: #C22E28;}
+.tipo-card.Veneno { background: #A33EA1;}
+.tipo-card.Tierra { background: #E2BF65;}
+.tipo-card.Volador { background: #A98FF3;}
+.tipo-card.Psíquico { background: #F95587;}
+.tipo-card.Bicho { background: #A6B91A;}
+.tipo-card.Roca { background: #B6A136;}
+.tipo-card.Fantasma { background: #735797;}
+.tipo-card.Dragón { background: #6F35FC;}
+.tipo-card.Siniestro { background: #705746;}
+.tipo-card.Acero { background: #B7B7CE;}
+.tipo-card.Hada { background: #D685AD;}
 
 /*  Otros elementos  */
 .info-box {
@@ -257,7 +257,7 @@ body > h2 + * {
 }
 
 .pokemon-card {
-    background-color: rgb(204, 202, 202);
+    background-color: rgb(231, 228, 228);
     border-radius: 15px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -292,7 +292,7 @@ body > h2 + * {
 }
 
 .generacion-card {
-    background-color: rgb(204, 202, 202);
+    background-color: #fff;
     border-radius: 14px;
     padding: 20px;
     text-align: center;
