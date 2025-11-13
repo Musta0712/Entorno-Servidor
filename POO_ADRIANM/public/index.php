@@ -157,6 +157,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         echo "</div>";
         echo "<hr>";
 
+        $charizarNewAttack = new AtaqueEspecial("Lanzallamas", 90, 90, $fuego);
+        $charmander->añadirAtaque($charizarNewAttack);
+        // Lo que hago en las dos lineas de arriba es crear un nuevo ataque y añadirselo a charmander.
+
+        // Mostrar ataques de Charmander actualizados
+        echo "<div class='pokemon-card'>";
+        echo "<h3>Charmander - Ataques actualizados</h3>";
+        echo "<h4>Ataques:</h4>";
+        foreach ($charmander->getAtaques() as $ataque) {
+            echo '<p>• ' . $ataque->getNombre() . '</p>';
+        }
+        echo "</div>";
+        echo "<hr>";
+
         //  CREAR POKEMON LEGENDARIO 
         $articuno = new PokemonLegendario(
             "Articuno", 144, "Articuno, Pokémon legendario de hielo y vuelo.",
