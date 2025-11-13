@@ -4,15 +4,15 @@ abstract class Pokemon {
     protected string $nombre;
     protected int $numeroPokedex;
     protected string $descripcion;
-    protected array $tipo;// List<Tipo>
+    protected array $tipos;// List<Tipo>
     protected array $ataques;// List<Ataque>
     protected Generacion $generacion;
 
-    public function __construct(string $nombre, int $numeroPokedex, string $descripcion, array $tipo, array $ataques, Generacion $generacion) {
+    public function __construct(string $nombre, int $numeroPokedex, string $descripcion, array $tipos, array $ataques, Generacion $generacion) {
         $this->nombre = $nombre;
         $this->numeroPokedex = $numeroPokedex;
         $this->descripcion = $descripcion;
-        $this->tipo = $tipo;
+        $this->tipos = $tipos;
         $this->ataques = $ataques;
         $this->generacion = $generacion;
     }
@@ -53,14 +53,14 @@ abstract class Pokemon {
         return $this;
     }
 
-    public function getTipo()
+    public function getTipos()
     {
-        return $this->tipo;
+        return $this->tipos;
     }
 
-    public function setTipo($tipo)
+    public function setTipos($tipo)
     {
-        $this->tipo = $tipo;
+        $this->tipos = $tipo;
 
         return $this;
     }
@@ -99,5 +99,5 @@ abstract class Pokemon {
         $this->descripcion = $nuevaDescripcion;
     }
 
-    abstract public function mostrarCategoria(): void; // Las subclases no tenian nada de info
+    abstract public function mostrarCategoria(): void; // Las subclases no tenian nada de info por eso puse esta
 }

@@ -1,11 +1,11 @@
 <?php
 
 abstract class Ataque {
-    private string $nombre;
-    private int $poder;
-    private int $precision;
-    private Tipo $tipo;
-    private string $descripcion = '';
+    protected string $nombre;
+    protected int $poder;
+    protected int $precision;
+    protected Tipo $tipo;
+    protected string $descripcion = '';
 
     public function __construct(string $nombre, int $poder, int $precision, Tipo $tipo) {
         $this->nombre = $nombre;

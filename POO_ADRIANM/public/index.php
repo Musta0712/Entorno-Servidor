@@ -84,13 +84,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         $placaje = new AtaqueFisico("Placaje", 50, 100, $normal);
         $rayo = new AtaqueEspecial("Rayo", 90, 100, $electrico);
         $pulsoDragon = new AtaqueEspecial("Pulso Dragón", 85, 90, $dragon);
+        $terremoto = new AtaqueFisico("Terremoto", 100, 100, $tierra);
         //Para el articuno
         $ventisca = new AtaqueEspecial("Ventisca", 110, 70, $hielo);
         $rayoHielo = new AtaqueEspecial("Rayo Hielo", 90, 90, $hielo);
         $liofilizacion = new AtaqueEspecial("Liofilización", 80, 90, $hielo);
         $vendaval = new AtaqueEspecial("Vendaval", 120, 70, $volador);
 
-        $ataques = [$pulsoDragon, $rayo, $llamarada, $placaje];
+        $ataques = [$pulsoDragon, $rayo, $llamarada, $placaje, $hidrobomba, $terremoto];
+
+
         echo "<h2>Ataques Pokémon</h2>";
         echo '<div class="ataques-grid">';
         foreach ($ataques as $ataque) {
@@ -102,11 +105,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
         echo '</div>';
         echo "<hr>";
 
+
         // --- CREAR GENERACION ---
         $gen1 = new Generacion(1, "Kanto", "Primera Generación");
+        $gen2 = new Generacion(2, "Johto", "Segunda Generación");
+        $gen3 = new Generacion(3, "Hoenn", "Tercera Generación");
         echo "<h2>Generación</h2>";
         echo '<div class="generacion-card">';
         $gen1->mostrarInfo();
+        $gen2->mostrarInfo();
+        $gen3->mostrarInfo();
         echo '</div>';
         echo "<hr>";
 
@@ -117,18 +125,20 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
             "Charmeleon", $fuego
         );
 
-        $bulbasaur = new PokemonInicial(
-            "Bulbasaur", 1, "Bulbasaur, el Pokémon semilla.",
-            [$planta], [$placaje], $gen1,
-            "Ivysaur", $planta
+        $chikorita = new PokemonInicial(
+            "Chikorita", 152, "Chikorita, el Pokémon hierba.",
+            [$planta], [$placaje], $gen2,
+            "Bayleef", $planta
         );
 
-        $squirtle = new PokemonInicial(
-            "Squirtle", 7, "Squirtle, el Pokémon tortuga de agua.",
-            [$agua], [$hidrobomba, $placaje], $gen1,
-            "Wartortle", $agua
+        $mudkip = new PokemonInicial(
+        "Mudkip", 258, "Mudkip, el Pokémon pez de tierra.",
+        [$agua, $tierra], [$hidrobomba, $terremoto], $gen3,
+        "Marshtomp", $agua
+        
         );
-        $iniciales = [$charmander, $bulbasaur, $squirtle];
+
+        $iniciales = [$charmander, $chikorita, $mudkip];
         echo "<h2>Pokémon Iniciales</h2>";
         echo '<div class="pokemon-grid">';
         foreach ($iniciales as $p) {
