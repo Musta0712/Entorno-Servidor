@@ -98,9 +98,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/POO_ADRIANM/app/models/Usuario.php';
             $ataque->mostrarInfo();
             echo "</div>";
         }
-
-
-
         // Lo que hago en el foreach de arriba es recorrer el array de ataques y mostrar su información dentro de una tarjeta 
         // cuyo color depende del tipo del ataque. CSS
 
