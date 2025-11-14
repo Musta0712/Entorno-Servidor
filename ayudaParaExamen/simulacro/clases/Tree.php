@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/clases/Plant.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ayudaParaExamen/simulacro/clases/Plant.php";
 //include "Planta.php";
 
 class Tree extends Plant{

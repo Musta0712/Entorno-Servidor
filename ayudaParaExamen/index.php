@@ -14,8 +14,8 @@
     /*Crea un objeto de tipo Flor y dos de tipo
     Arbol con los datos que quieras. Haz que una de las flores crezca 1.3cm*/
 
-    require $_SERVER["DOCUMENT_ROOT"] . "/clases/Flower.php";
-    require $_SERVER["DOCUMENT_ROOT"] . "/clases/Tree.php";
+    require $_SERVER["DOCUMENT_ROOT"] . "/ayudaParaExamen/simulacro/clases/Flower.php";
+    require $_SERVER["DOCUMENT_ROOT"] . "/ayudaParaExamen/simulacro/clases/Tree.php";
 
     $f = new Flower("Orquidea", 22.8, "marzo");
     $f->grow(1.3);
