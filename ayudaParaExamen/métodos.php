@@ -68,3 +68,91 @@ function calcularPrecioTotal(array $productos): float {
     }
     return $total;
 }
+
+// MÉTODOS CON SELF
+
+
+class Circulo {
+    public static $pi = 3.1416;
+
+
+    public static function area($radio) {
+        return self::$pi * ($radio * $radio);
+    }
+}
+    echo Circulo::area(4); // 50.2656
+
+
+class Usuario {
+    private static $contador = 0;
+
+
+    public function __construct() {
+        self::$contador++;
+    }
+
+
+    public static function totalUsuarios() {
+        return self::$contador;
+    }
+}
+
+
+    new Usuario();
+    new Usuario();
+
+
+    echo "Usuarios registrados: " . Usuario::totalUsuarios(); // 2
+
+// Añadir un objeto a un array de objetos
+// delante de function va public static si está dentro de una clase
+
+function agregarPlanta(array &$plantas, $planta): void {
+    $plantas[] = $planta;
+}
+
+// Eliminar un objeto por indice
+// delante de function va public static si está dentro de una clase
+
+function eliminarPlanta(array &$plantas, int $indice): void {
+    if (isset($plantas[$indice])) {
+        array_splice($plantas, $indice, 1);
+    }
+}
+
+// Eliminar un objeto que cumpla una condición
+// delante de function va public static si está dentro de una clase
+
+function eliminarPlantaPorNombre(array &$plantas, string $nombre): void {
+    foreach ($plantas as $indice => $planta) {
+        if ($planta->getNombre() === $nombre) {
+            array_splice($plantas, $indice, 1);
+            break;
+        }
+    }
+}
+
+// Añadir solo si no existe ya (evirar duplicados)
+// delante de function va public static si está dentro de una clase
+
+function agregarPlantaUnica(array &$plantas, $planta): void {
+    foreach ($plantas as $p) {
+        if ($p->getNombre() === $planta->getNombre()) {
+            return; // Ya existe
+        }
+    }
+    $plantas[] = $planta;
+}
+
+// Eliminar todos los objetos que cumplan una condición
+// delante de function va public static si está dentro de una clase
+    function eliminarNoPerenne(array &$arboles): void {
+    foreach ($arboles as $i => $a) {
+            if (!$a->getPerenne()) {
+                unset($arboles[$i]);
+            }
+        }
+    // Reindexar el array
+    $arboles = array_values($arboles);
+}
+
