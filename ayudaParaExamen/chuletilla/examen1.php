@@ -1,6 +1,127 @@
 <?php
 echo "<h2>Examen - Figuras, Productos y Cuentas</h2>";
 
+// Ejercicio 1 – Figuras geométricas (Herencia + Métodos de cálculo)
+
+// Crea una clase abstracta Figura con:
+
+// Atributo color (string)
+
+// Constructor
+
+// Getters
+
+// El método abstracto area() : float
+
+// El método abstracto perimetro() : float
+
+// Método __toString() que muestre el color.
+
+// Crea dos clases que hereden de ella:
+
+
+// Clase Circulo
+
+// Atributos:
+
+// radio (float)
+
+// Métodos:
+
+// área = π * radio²
+
+// perímetro = 2 * π * radio
+
+
+
+// Clase Rectangulo
+
+// Atributos:
+
+// ancho (float)
+
+// alto (float)
+
+// Métodos:
+
+// área = ancho * alto
+
+// perímetro = 2*(ancho + alto)
+
+
+// En el archivo main (examen1.php):
+
+// Crea un círculo y dos rectángulos
+
+// Muestra sus áreas y perímetros
+
+// Imprime todo dentro de una tabla HTML:
+
+// | Figura | Color | Área | Perímetro |
+
+
+// Ejercicio 2 – Gestión de Productos (POO + cálculos)
+
+// Crea una clase Producto con:
+
+// Atributos:
+
+// nombre (string)
+
+// precio (float)
+
+// iva (float) → % IVA (por ejemplo, 21)
+
+// Métodos:
+
+// precioConIVA(): float → precio + (precio * iva/100)
+
+// rebajar(float $porcentaje): void → disminuye el precio n%
+
+// __toString()
+
+// En examen1.php:
+
+// Crea 3 productos
+
+// Rebaja uno de ellos un 15%
+
+// Muestra una lista <ul> con:
+
+
+// Ejercicio 3 – Cuenta bancaria (Cálculo + Validación)
+
+// Crea la clase CuentaBancaria con:
+
+// Atributos:
+
+// titular (string)
+
+// saldo (float)
+
+// Métodos:
+
+// ingresar(float $cantidad)
+
+// retirar(float $cantidad) : bool → solo retira si hay saldo
+
+// obtenerSaldo()
+
+// __toString()
+
+// En examen1.php:
+
+// Crea una cuenta con saldo inicial
+
+// Ingresa 500€
+
+// Intenta retirar 3000€ (debe fallar)
+
+// Retira 200€ correctamente
+
+// Muestra resultado final en pantalla
+
+
 require_once "clases/Circulo.php";
 require_once "clases/Rectangulo.php";
 require_once "clases/Figura.php";
