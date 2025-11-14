@@ -60,6 +60,7 @@ echo "<h2>Examen - Figuras, Productos y Cuentas</h2>";
 // | Figura | Color | Área | Perímetro |
 
 
+
 // Ejercicio 2 – Gestión de Productos (POO + cálculos)
 
 // Crea una clase Producto con:
@@ -87,6 +88,7 @@ echo "<h2>Examen - Figuras, Productos y Cuentas</h2>";
 // Rebaja uno de ellos un 15%
 
 // Muestra una lista <ul> con:
+
 
 
 // Ejercicio 3 – Cuenta bancaria (Cálculo + Validación)
