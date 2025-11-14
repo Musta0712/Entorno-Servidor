@@ -170,7 +170,7 @@ echo "</ul>";
 
 echo "<h3>Ejercicio 3: Cuenta Bancaria</h3>";
 
-$cuenta = new CuentaBancaria("Carlos Pérez", 1000);
+$cuenta = new CuentaBancaria("Adrián Mustatea", 1000);
 
 $cuenta->ingresar(500);
 $ret1 = $cuenta->retirar(3000); // no debería poder
