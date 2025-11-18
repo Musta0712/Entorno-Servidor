@@ -5,7 +5,7 @@ class User{
         private string $password,
         private string $email,
         private int $age,
-        private array $curso,  //DAW, DAM, ASIR (checkboxes)
+        private array $curso = [],  //DAW, DAM, ASIR (checkboxes)
     ){
 
     }

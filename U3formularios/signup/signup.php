@@ -16,7 +16,7 @@
         <input type="password" name="pass" id="pass" minlength="5" required>
         <br>
         <label for="pass2"> Confirma la contraseña:</label>
-        <input type="password2" name="pass2" id="pass2" minlength="5" required>
+        <input type="password" name="pass2" id="pass2" minlength="5" required>
         <br>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required>
