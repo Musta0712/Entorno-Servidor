@@ -14,7 +14,7 @@
         </ol>
 
         <?php
-        require $_SERVER["REQUEST_METHOD"] . "/U3formularios/singup/User.php";
+        require $_SERVER["DOCUMENT_ROOT"] . "/U3formularios/signup/User.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $name = $_POST["name"];
             $pass = $_POST["pass"];
@@ -22,7 +22,7 @@
             $email = $_POST["email"];
             $age = $_POST["age"];
             // $courses =$_POST["courses"];
-            $u = new User($name, $pass, $email, $age, $courses);
+            $u = new User($name, $pass, $email, $age);
             echo "<p>$u</p>";
         } else {
             echo "<p>No puedes estar aquí</p>";
