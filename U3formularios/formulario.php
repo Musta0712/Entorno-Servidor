@@ -10,8 +10,8 @@
         <label for="name">Nombre:</label>
         <input type="text" placeholder="Nombre..." name="name" id="name" required>
         <br>
-        <label for="name">Contraseña:</label>
-        <input type="password" name="pass" id="password" minlength="5">
+        <label for="pass">Contraseña:</label>
+        <input type="password" name="pass" id="pass" minlength="5">
         <br>
         <label for="termsyes">Acepto los términos</label>
         <input type="checkbox" name="terms" value="true" id="terms">
