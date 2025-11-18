@@ -21,7 +21,7 @@
             $pass2 = $_POST["pass2"];
             $email = $_POST["email"];
             $age = $_POST["age"];
-            $courses =$_POST["courses"];
+            // $courses =$_POST["courses"];
             $u = new User($name, $pass, $email, $age, $courses);
             echo "<p>$u</p>";
         } else {
