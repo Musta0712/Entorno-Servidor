@@ -21,8 +21,21 @@
             $pass2 = $_POST["pass2"];
             $email = $_POST["email"];
             $age = $_POST["age"];
+            var_dump($_POST);
             // $courses =$_POST["courses"];
-            $u = new User($name, $pass, $email, $age);
+
+            //Si hago la transformación a int, tengo que verificar que no está vacio
+            if (empty($age)) {
+                $age = 0;
+            }
+
+            //Si es un array: el name tiene que incluir []
+            //Si son checkbox, radio, select, etc. Tengo que verificar si existe esa clave en $_POST
+            $studies = [];
+            if (isset($_POST["studies"])) {
+                $studies = $_POST["studies"];
+            }
+            $u = new User($name, $pass, $email, $age, $studies);
             echo "<p>$u</p>";
         } else {
             echo "<p>No puedes estar aquí</p>";

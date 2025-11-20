@@ -8,7 +8,7 @@
 <body>
     <form action="landing.php" method="post"> 
         <label for="name">Nombre:</label>
-        <input type="text" placeholder="Nombre..." name="name" id="name" required>
+        <input type="text" placeholder="Nombre..." name="name" id="name">
         <br>
         <label for="pass">Contraseña:</label>
         <input type="password" name="pass" id="pass" minlength="5">
