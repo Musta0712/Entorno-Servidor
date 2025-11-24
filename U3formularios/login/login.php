@@ -1,5 +1,9 @@
 <?php
+session_start(); //Abro sesion
+
+
 $name = $pass = $terms = "";
+$nameError = "";
 $termsError = "";
 $errores = false;
 
@@ -24,6 +28,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //si no, me quedo.
     if (!$errores){
         //TO DO sesión y a index
+        $_SESSION["name"] = $name;
+        $_SESSION["pass"] = $pass;
+        $_SESSION["origin"] = "login"; //este me viene bien para saber en el index de donde vengo
+        $_SESSION["terms"] = $terms;
+        $_SESSION["test"] = 45.9; // este no vale para nada
+        //Redirijo:
+        //header("Location: indexprovisional.php");
+        header("Location: ../indexv2.php");
+        //termino el script
+        exit();
     }
 }
 
@@ -35,13 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../formularios.css" rel="stylesheet">
+    <link href="/U3formularios/formulario.css" rel="stylesheet">
 </head>
 
 <body>
     <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
         <label for="name">Nombre:</label>
-         <input type="text" placeholder="Nombre..." name="name" id="name" minlength="3" maxlength="15" value="<?= $name ?>">
+        <input type="text" placeholder="Nombre..." name="name" id="name" minlength="3" maxlength="15" value="<?= $name ?>">
+        <?= "<p class='error'> " . $nameError . "</p>" ?>
         <br>
         <label for="pass">Contraseña:</label>
         <input type="password" name="pass" id="pass" >
