@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 $name = $email = $pass = $pass2 = "";
 $age = 0;
@@ -6,29 +8,52 @@ $studies = [];
 $errors = false;
 $passError = " ";
 
-//Hago las comprobaciones del formulario:
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    //Solo se va a meter en este if si llega con una petición POST,
-    // es decr, después de hacer click en el botñon del formulario post
-    //echo "hola";
+function secure($text){
+    /*
+    // Quitar espacios de delante y detras
+    $text = trim($text);
+    // Escapar carácteres especiales
+    $text = stripslashes($text);
+    // Carácteres especiales de HTML
+    $text = htmlspecialchars($text);*/
 
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $pass = $_POST["pass"];
-    $pass2 = $_POST["pass2"];
-    $email = $_POST["email"];
-    $age = $_POST["age"];
+    $text = htmlspecialchars(stripslashes(trim($text)));
+    return $text;
+}
+
+
+// Hago las comprobaciones del formulario:
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    // Solo se va a meter en este if si llega con una petición POST,
+    // es decr, después de hacer click en el botñon del formulario post
+    // echo "hola";
+
+    $name = secure ($_POST["name"]);
+    $email = secure ($_POST["email"]);
+    $pass = secure ($_POST["pass"]);
+    $pass2 = secure ($_POST["pass2"]);
+    $email = secure ($_POST["email"]);
+    $age = secure ($_POST["age"]);
     if (isset($_POST["studies"])) {
-        $studies = $_POST["studies"];
+        $studies = ($_POST["studies"]);
     }
 
     if ($pass != $pass2) {
-        //Hay errores, muestro el formulario (sigo aqui)
+        // Hay errores, muestro el formulario (sigo aqui)
         $errors = true;
         $passError = "Las contraseñas no coinciden";
-    }else{
-        //Me voy al index:
+    } else {
+        //Guardo el la sesión los datos que quiero pasar:
+        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $email;
+        $_SESSION["pass"] = $pass;
+        $_SESSION["age"] = $age;
+        $_SESSION["studies"] = $studies;
+        //Le puedo meter otra información
+        $_SESSION["origin"] = "signup";
+        // Me voy al index:
         header("Location: indexv2.php");
+        exit(); // Con esto termina el script, no se ejecuta nada más.
     }
 }
 
