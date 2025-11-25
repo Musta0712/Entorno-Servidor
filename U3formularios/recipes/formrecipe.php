@@ -13,7 +13,7 @@
     $tiempo = $_POST['tiempo'] ?? '';
     $select = $_POST['tipo'] ?? '';
     $radio = $_POST['gluten'] ?? '';
-    $color = $_POST['color'] ?? '#000000';
+    $color = $_POST['color'] ?? '#800080';
 
     $errores = [];
 
