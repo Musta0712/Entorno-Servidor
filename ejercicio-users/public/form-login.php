@@ -1,3 +1,44 @@
+<?php
+session_start();
+
+$name = $pass = $type = "";
+$mailError = $passError = $typeError = "";
+$errors = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    //Ha llegado después de ahcer click en Submit
+    //1. Recojo datos securizados
+    include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/utils/functions.php";
+    $mail = secure($_POST["email"]);
+    //TO DO lo del nombre de usuario / email
+    $pass = secure($_POST["password"]);
+    if(!isset($_POST["login-type"])){
+        $errors = true;
+        $typeError = "Tienes que seleccionar un método";
+    } else {
+        $type = secure($_POST["login-type"]);
+    }
+
+    //2. Verifico
+    if (strlen($name) < 3){
+        $nameError = "ERROR!!!!";
+        $errors = true;
+    }
+
+    if (strlen($pass) < 3){
+        $passError = "ERROR!!!!";
+        $errors = true;
+    }
+    //TO DO en algún momento verificamos con la BD
+    //que existe ese usuario y contraseña
+
+    //3, Ne voy o muestro errores
+    
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

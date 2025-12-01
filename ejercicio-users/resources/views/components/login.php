@@ -1,7 +1,7 @@
 <!-- Formulario de Login -->
 <div class="form-container">
     <h2>Iniciar Sesión</h2>
-    <form id="loginForm">
+    <form id="loginForm" action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
         <div class="radio-group">
             <div class="radio-option">
                 <input type="radio" id="login-email" name="login-type" value="email" checked>

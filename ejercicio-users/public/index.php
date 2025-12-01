@@ -20,7 +20,7 @@ session_start();
         <?php
         if (isset($_SESSION["origin"]) and $_SESSION["origin"] == "signup") {
             //Creo un objeto User
-            require_once $_SERVER["DOCUMENT_ROOT"] . "/app/models/User.php";
+            require_once $_SERVER["DOCUMENT_ROOT"] . "ejercicio-users/app/models/User.php";
             //require_once $_SERVER["DOCUMENT_ROOT"] . "/app/models/Region.php";
             /*$region = "madrid";
             $u = new User("nombre", "a@a.com", "asdf", constant("Region::$region"));*/
