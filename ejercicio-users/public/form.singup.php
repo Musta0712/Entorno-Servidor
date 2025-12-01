@@ -8,7 +8,7 @@ $errors = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //1. Recoger datos
-    include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/utils/functions.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/utils/functions.php";
     $name = secure($_POST["fullname"]);
     $email = secure($_POST["signup-email"]);
     $pass = secure($_POST["signup-password"]);
@@ -63,13 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <!-- Incluir cabecera -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/resources/views/layouts/header.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
     <main>
         <!-- incluyo el formulario de signup -->
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/resources/views/components/signup.php"; ?>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/components/signup.php"; ?>
     </main>
     <!-- Incluir footer -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/resources/views/layouts/footer.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>
 </body>
 
 </html>

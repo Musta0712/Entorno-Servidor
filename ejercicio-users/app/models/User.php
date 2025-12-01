@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/app/models/Region.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/Region.php";
 class User
 {
     public function __construct(

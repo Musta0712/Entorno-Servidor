@@ -11,17 +11,17 @@
 
 <body>
     <!-- Incluir cabecera -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/resources/views/layouts/header.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
     <main>
 
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/resources/views/components/login.php"; ?>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/components/login.php"; ?>
 
 
 
 
 
         
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/app/models/User.php";
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/User.php";
 
         /* Ejemplo para construir un objeto utilizando el enum: */
         $region = "madrid";
@@ -32,7 +32,7 @@
 
     </main>
     <!-- Incluir footer -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicios-users/resources/views/layouts/footer.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>
 </body>
 
 </html>

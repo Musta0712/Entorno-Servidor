@@ -14,7 +14,7 @@ session_start();
 
 <body>
     <!-- Incluir cabecera -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/header.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
     <main>
 
         <?php
@@ -46,7 +46,7 @@ session_start();
 
     </main>
     <!-- Incluir footer -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/footer.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>
 </body>
 
 </html>
