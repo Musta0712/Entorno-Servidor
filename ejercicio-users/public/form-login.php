@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$name = $pass = $type = "";
+$mail = $pass = $type = "";
 $mailError = $passError = $typeError = "";
 $errors = false;
 
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     //2. Verifico
-    if (strlen($name) < 3){
+    if (strlen($mail) < 3){
         $nameError = "ERROR!!!!";
         $errors = true;
     }
@@ -33,6 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     //que existe ese usuario y contraseña
 
     //3, Ne voy o muestro errores
+
+    if (!$errors) {
+        //Hago lo de la cookie de seguir concectado
+        if(isset($_POST["stay-connected"])) {
+            setcookie("stay-connected", $mail, time()+60*60, "/");
+        }
+        $_SESSION["email"] = $mail;
+        $_SESSION["origin"] = "login";
+        header("Location: index.php");
+    }
     
 }
 
@@ -54,23 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Incluir cabecera -->
     <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
     <main>
-
         <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/components/login.php"; ?>
-
-
-
-
-
-        
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/User.php";
-
-        /* Ejemplo para construir un objeto utilizando el enum: */
-        $region = "madrid";
-        $u = new User("nombre", "a@a.com", "asdf", constant("Region::$region"));
-        echo "$u";
-        /* Comenta esta sección de código */
-        ?>
-
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/User.php"; ?>
     </main>
     <!-- Incluir footer -->
     <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>

@@ -66,11 +66,6 @@
             <div class="error-message" id="region-error">Por favor, selecciona tu comunidad autónoma</div>
         </div>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="stay-connected" name="stay-connected">
-            <label for="stay-connected">Quiero seguir conectado</label>
-        </div>
-
         <button type="submit">Crear Cuenta</button>
 
         <div class="form-footer">

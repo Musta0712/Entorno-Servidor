@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+//Voy a verificar que ha llegado:
+    //1. tiene cookie
+    //2. form-login
+    //3. form-signup
+if(isset($_COOKIE["stay-connected"]) ){
+    //Me quedo
+} else if  (isset($_SESSION["origin"])) {
+    //Me quedo
+} else {
+    header("Location: form-login.php");
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,12 +50,9 @@ session_start();
             echo "<p>$u</p>";
         }
 
-
-
-        // Ver si tiene cookies de permanecer registrado. Coger su nombre
-        // Si no tiene cookie pero tiene sesión, recuperar su nombre
-        // Si no, a signup.
-
+        IF (isset($_SESSION["origin"]) && $_SESSION["origin"] == "login") {
+            echo "<p>Te damos la bienvenida, {$_SESSION ['email']}</p>";
+        }
         ?>
 
     </main>
