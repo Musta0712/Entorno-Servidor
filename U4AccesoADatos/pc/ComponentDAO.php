@@ -135,7 +135,26 @@ class ComponentDAO
         return $arr;
     }
 
-    public static function readByPcId($id){
-        //todo el lunes
+    public static function readByPcId($id)
+    {
+        $components = array();
+        $conn = CoreDB::getConnection();
+        $sql = "SELECT * from components where pc_id = ?";
+        //preparo statment
+        $ps = $conn->prepare($sql);
+
+        //bind
+        $ps->bind_param("s", $id);
+
+        //lanzo
+        $ps->execute();
+
+        //obtengo resultados
+        $result = $ps->get_result();
+        while (($row = $result->fetch_assoc()) != null) {
+            $components[] = new Component($row["name"], $row["brand"], $row["model"], $row["id"]);
+        }
+        $conn->close();
+        return $components;
     }
 }

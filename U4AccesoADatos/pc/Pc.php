@@ -10,7 +10,8 @@ class Pc
         private array $components = []
     ) {}
 
-    public function addComponent($c){
+    public function addComponent($c)
+    {
         $this->components[] = $c;
     }
 
@@ -76,5 +77,23 @@ class Pc
     public function getComponents()
     {
         return $this->components;
+    }
+
+    /**
+     * Set the value of components
+     *
+     * @return  self
+     */
+    public function setComponents($components)
+    {
+        $this->components = $components;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return "$this->id $this->owner $this->brand $this->price - Components: " .
+            implode(" | ", $this->components);
     }
 }

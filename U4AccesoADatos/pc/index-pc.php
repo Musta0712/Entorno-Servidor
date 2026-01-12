@@ -17,7 +17,9 @@
     $pc->addComponent($c3);
 
     //Lo añado a la BD:
-    PcDAO::create($pc);
+    //PcDAO::create($pc);
+
+    echo PcDAO::read("asus125");
 
 
 

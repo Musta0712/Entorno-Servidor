@@ -3,14 +3,16 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/CoreDB.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/Component.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/Pc.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/ComponentDAO.php";
-class PcDAO{
+class PcDAO
+{
     /**
      * Create / insert.
      * Guarda en la bd un ordenador, y también guarda todos sus componentes
      * @param Pc $pc
      * @return bool true si lo ha insertado, false si no lo ha insertado.
      */
-    public static function create($pc):bool{
+    public static function create($pc): bool
+    {
         $conn = CoreDB::getConnection();
         $sql = "INSERT into pcs (id, owner, brand, price)
             values(?, ?, ?, ?)";
@@ -29,7 +31,7 @@ class PcDAO{
         $ret = $ps->execute();  /* aquí se guarda en la bd el ordenador */
 
         //Guardo los componentes en la bd:
-        foreach($pc->getComponents() as $component){
+        foreach ($pc->getComponents() as $component) {
             ComponentDAO::create($component, $id);
         }
 
@@ -44,7 +46,8 @@ class PcDAO{
      * @param string $id
      * @return Pc Pc leído de la bd o null si no existe el id.
      */
-    public static function read($id): ?Pc{
+    public static function read($id): ?Pc
+    {
         $conn = CoreDB::getConnection();
         $sql = "SELECT * from pcs where id = ?";
         $ps = $conn->prepare($sql);
@@ -52,40 +55,35 @@ class PcDAO{
         $ps->execute();
         $result = $ps->get_result();
         //En result tengo el objeto mysqli_result con la información leída de la bd
-        if ($result->num_rows > 0){
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             //fetch_assoc convierte el primer resultado que hay en el mysqli_result en un array 
             // asociativo más fácil de manejar
             $pc = new Pc($id, $row["owner"], $row["brand"], $row["price"]);
 
             //Ahora tengo que leer los componentes donde su pc_id sea el de este pc:
-
-        }else{
+            $pc->setComponents(ComponentDAO::readByPcId($id));
+        } else {
             $pc = null;
         }
-
-
-
-
-
-
-
-
         $conn->close();
         return $pc;
     }
 
-    public static function update($pc): bool{
+    public static function update($pc): bool
+    {
         //todo
         return false;
     }
 
-    public static function delete($id): ?Pc{
+    public static function delete($id): ?Pc
+    {
         //todo
         return null;
     }
 
-    public static function readAll(){
+    public static function readAll()
+    {
         //todo
     }
 
@@ -95,8 +93,8 @@ class PcDAO{
      * @param mixed $max precio máximo
      * @return array Array con los pcs 
      */
-    public static function readBetweenPrice($min, $max){
+    public static function readBetweenPrice($min, $max)
+    {
         //todo
     }
-
 }

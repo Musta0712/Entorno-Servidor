@@ -15,7 +15,6 @@ class Component
         return "id: $this->id - Name: $this->name - Bran: $this->brand - Model: $this->model";
     }
 
-
     /**
      * Get the value of name
      */
@@ -59,4 +58,5 @@ class Component
 
         return $this;
     }
+
 }
