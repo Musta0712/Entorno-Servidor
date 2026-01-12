@@ -1,8 +1,8 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/CoreDB.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/Component.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/Pc.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/ComponentDAO.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/CoreDB.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/Component.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/Pc.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/ComponentDAO.php";
 class PcDAO
 {
     /**

@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/CoreDB.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/pc/Component.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/CoreDB.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/Component.php";
 
 class ComponentDAO
 {
