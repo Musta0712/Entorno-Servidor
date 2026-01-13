@@ -1,16 +1,20 @@
 <?php
 
-class User {
-    function __construct(
+class User{
+    public function __construct(
         private string $name,
         private string $pass,
         private int $id = -1
-    ){}
+    )
+    {
+    }
 
     public function __toString()
     {
         return "$this->name $this->id";
     }
+
+    
 
         /**
          * Get the value of name

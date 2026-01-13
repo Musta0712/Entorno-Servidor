@@ -34,7 +34,7 @@ class ComponentDAO
         $ps->execute();
 
         //obtengo el id con el que se ha insertado
-        $id = $ps->insert_id;   //todo funciona con $conn en lugar de $ps?????
+        $id = $ps->insert_id;   
         $c->setId($id);
 
         //cerrar conexión

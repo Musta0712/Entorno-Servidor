@@ -31,7 +31,7 @@ delete from shop.components  where id = 99;
 */
 
 /*añadir el pc 'pc7' que tiene 3 componentes n1, n2 y n3 */
-INSERT INTO shop.pcs
+/*INSERT INTO shop.pcs
 	(id, owner, brand, price)
 	VALUES('pc7', 'o', 'b', 150);
 
@@ -45,4 +45,10 @@ INSERT INTO shop.components
 
 INSERT INTO shop.components
 	(name, brand, model, pc_id)
-	VALUES('n3', 'b', 'm', 'pc7');
+	VALUES('n3', 'b', 'm', 'pc7');*/
+
+CREATE TABLE shop.users (
+	id int primary key auto_increment,
+	name varchar(255) unique,
+	password varchar(255)
+	);
