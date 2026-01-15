@@ -20,4 +20,16 @@ enum Region: String
     case valencia = 'País Valencià';
     case ceuta = 'Ceuta';
     case melilla = 'Melilla';
+
+    public static function fromCaseName(string $caseName): ?self
+    
+    {
+        $caseName = strtolower($caseName);
+        foreach (self::cases() as $case) {
+            if (strtolower($case->name) === $caseName) {
+                return $case;
+            }
+        }
+        return null;
+    }
 }

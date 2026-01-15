@@ -10,7 +10,7 @@
     require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/PcDAO.php";
     require_once $_SERVER["DOCUMENT_ROOT"] . "/U4AccesoADatos/pc/UserDAO.php";
 
-    $pc = new Pc("asus199", "andrea", "Asus", 1364.1);
+    /*$pc = new Pc("asus199", "andrea", "Asus", 1364.1);
     $c1 = new Component("ssd", "samsung", "58H");
     $c2 = new Component("ram", "samsung", "W526");
     $c3 = new Component("mouse", "logitech", "asd");
@@ -43,7 +43,24 @@
         echo "No se ha creado :(";
     }
 
-    echo PcDAO::delete("asus199");
+    //echo PcDAO::delete("asus199");*/
+
+    $pc = new Pc("asus1200", "andrea", "Asus", 1364.1);
+    $c1 = new Component("ssd", "samsung", "58H");
+    $c2 = new Component("ram", "samsung", "W526");
+    $c3 = new Component("mouse", "logitech", "asd");
+
+    $pc->addComponent($c1);
+    $pc->addComponent($c2);
+    $pc->addComponent($c3);
+
+    PcDAO::create($pc);
+
+    if (PcDAO::create($pc)) {
+        echo "Se ha creado :)";
+    } else {
+        echo "No se ha creado :(";
+    }
     
     ?>
 </body>

@@ -8,7 +8,7 @@ $errors = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //1. Recoger datos
-    include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/utils/functions.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/utils/functions.php";
     $name = secure($_POST["fullname"]);
     $email = secure($_POST["signup-email"]);
     $pass = secure($_POST["signup-password"]);
@@ -21,32 +21,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //2. Verificaciones
     if (empty($name)) {
         $errors = true;
-        $nameError = "Este campo es obligatorio";
+        $nameError = "El nombre es obligatorio";
     }
     if (empty($email)) {
         $errors = true;
-        $emailError = "Este campo es obligatorio";
+        $emailError = "El email es obligatorio";
     }
     if (empty($pass) or $pass != $pass2){
         $errors = true;
-        $passError = "Rellena las contraseñas iguales";
+        $passError = "Las contraseñas no coinciden";
     }
 
     //3. Si todo bien: me voy a index (sesión)
+    //----->Y lo meto en la base de datos
     if(!$errors){
         $_SESSION["fullname"] = $name;
         $_SESSION["signup-email"] = $email;
         //$_SESSION["signup-password"] = $pass;
         //Las contraseñas no se envían
         $_SESSION["region"] = $comunidad;
-        //to do stay-connected es movida de cookies
         $_SESSION["origin"] = "signup";
-        header("Location: index.php");
+        //header("Location: index.php");
+
+        //Lo guardo en la BD:
+        require_once $_SERVER["DOCUMENT_ROOT"] . "/app/repositories/UserDAO.php";
+        $u = new User($name, $email, $pass, Region::fromCaseName($comunidad));
+        UserDAO::create($u);
+
+
+        exit();
+
     }
     //3. Si no, me quedo mostrando errores y recuperando values
 
 
-    //to do mostrar errores, poner clases de error (si quiero), etc
 }
 
 ?>
@@ -63,13 +71,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <!-- Incluir cabecera -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/header.php"; ?>
     <main>
         <!-- incluyo el formulario de signup -->
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/components/signup.php"; ?>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/components/signup.php"; ?>
     </main>
     <!-- Incluir footer -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/footer.php"; ?>
 </body>
 
 </html>
