@@ -1,7 +1,7 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/app/models/User.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/app/core/CoreDB.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/User.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/core/CoreDB.php";
 
 class UserDAO
 {

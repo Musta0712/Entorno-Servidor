@@ -31,7 +31,7 @@ if (!(isset($_COOKIE["stay-connected"]) or isset($_SESSION["origin"]))) {
 
 <body>
     <!-- Incluir cabecera -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/header.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
     <main>
 
         <?php
@@ -39,7 +39,7 @@ if (!(isset($_COOKIE["stay-connected"]) or isset($_SESSION["origin"]))) {
         //DONDE CORRESPONDA: CREAR OBJETO BOOK Y MOSTRARLO (to string)
         // y verificar que todo sigue funcionando
         if (isset($_SESSION["origin"]) and $_SESSION["origin"] == "create-book") {
-            include $_SERVER["DOCUMENT_ROOT"] . "/app/models/Book.php";
+            include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/Book.php";
             $b = new Book(
                 $_SESSION["isbn"],
                 $_SESSION["title"],
@@ -53,7 +53,7 @@ if (!(isset($_COOKIE["stay-connected"]) or isset($_SESSION["origin"]))) {
 
         if (isset($_SESSION["origin"]) and $_SESSION["origin"] == "signup") {
             //Creo un objeto User
-            require_once $_SERVER["DOCUMENT_ROOT"] . "/app/models/User.php";
+            require_once $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/User.php";
             //require_once $_SERVER["DOCUMENT_ROOT"] . "/app/models/Region.php";
             /*$region = "madrid";
             $u = new User("nombre", "a@a.com", "asdf", constant("Region::$region"));*/
@@ -84,7 +84,7 @@ if (!(isset($_COOKIE["stay-connected"]) or isset($_SESSION["origin"]))) {
 
     </main>
     <!-- Incluir footer -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/footer.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>
 </body>
 
 </html>

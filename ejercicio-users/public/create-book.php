@@ -16,7 +16,7 @@ $isbnError = $titleError = $authorError = "";
 $errors = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //2. recojo valores securizados
-    include $_SERVER["DOCUMENT_ROOT"] . "/utils/functions.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/utils/functions.php";
     $isbn = secure($_POST["isbn"]);
     $title = secure($_POST["title"]);
     $author = secure($_POST["author"]);
@@ -69,14 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/header.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/header.php"; ?>
     <main>
 
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/components/book.php"; ?>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/components/book.php"; ?>
 
     </main>
     <!-- Incluir footer -->
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/layouts/footer.php"; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/resources/views/layouts/footer.php"; ?>
 
 </body>
 

@@ -53,7 +53,7 @@
         <div class="form-group">
             <label for="region">Comunidad Autónoma</label>
             <select id="region" name="region">
-                <?php include $_SERVER["DOCUMENT_ROOT"] . "/app/models/Region.php"; ?>
+                <?php include $_SERVER["DOCUMENT_ROOT"] . "/ejercicio-users/app/models/Region.php"; ?>
                 <?php foreach (Region::cases() as $comunidad): ?>
                     <option value="<?= $comunidad->name ?>"><?= $comunidad->value ?></option>
                     <?php //todo el jueves los selected 
@@ -67,7 +67,7 @@
         <button type="submit">Crear Cuenta</button>
 
         <div class="form-footer">
-            ¿Ya tienes cuenta? <a href="/public/form-login.php" id="go-to-login">Inicia Sesión</a>
+            ¿Ya tienes cuenta? <a href="/ejercicio-users/public/form-login.php" id="go-to-login">Inicia Sesión</a>
         </div>
     </form>
 </div>
