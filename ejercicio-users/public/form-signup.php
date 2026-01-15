@@ -46,13 +46,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //Lo guardo en la BD:
         require_once $_SERVER["DOCUMENT_ROOT"] . "/app/repositories/UserDAO.php";
         $u = new User($name, $email, $pass, Region::fromCaseName($comunidad));
-        UserDAO::create($u);
-
+        
+        if (UserDAO::create($u)) {
+            echo "Creado :)";
+        }else {
+            echo "No se ha creado :(";
+        }
 
         exit();
-
+        
     }
-    //3. Si no, me quedo mostrando errores y recuperando values
+    //4. Si no, me quedo mostrando errores y recuperando values
 
 
 }
