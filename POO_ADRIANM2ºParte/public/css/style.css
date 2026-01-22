@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #ef5350; /* Rojo Pokémon */
+    --secondary-color: #3761a8; /* Azul Pokémon */
+    --accent-color: #feca1b; /* Amarillo Pikachu */
+    --background-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #2c3e50;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* HEADER DINÁMICO */
+.header {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #b71c1c 100%);
+    padding: 60px 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: aparecer 1s ease-out;
+}
+
+/* MENÚ DE NAVEGACIÓN (Cards) */
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+    margin-top: -30px; /* Sube un poco para solapar con el header */
+}
+
+.card-opciones {
+    background: var(--card-bg);
+    width: 200px;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--box-shadow);
+    text-decoration: none;
+    border: none;
+}
+
+.card-opciones i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.card-opciones a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.card-opciones:hover {
+    transform: translateY(-10px);
+    background-color: var(--secondary-color);
+}
+
+.card-opciones:hover a, .card-opciones:hover i {
+    color: white;
+}
+
+/* CONTENEDOR DE FORMULARIOS */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.form-container {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+/* TABLAS MODERNAS */
+table {
+    width: 100%;
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    padding: 40px 20px;
+    background: #263238;
+    color: #cfd8dc;
+    border-top: 5px solid var(--accent-color); /* Un toque de color para separar */
+}
+
+.footer-content p {
+    margin: 5px 0; /* Espaciado pequeño entre líneas del footer */
+}
+/* ANIMACIONES */
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    margin: 20px auto;
+    text-align: center;
+    width: 90%;
+}
