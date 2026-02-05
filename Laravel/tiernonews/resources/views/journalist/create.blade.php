@@ -81,6 +81,12 @@
                             <h2 class="fw-bold">Nueva Cuenta</h2>
                             <p class="text-muted">Únete a nuestra red de periodistas</p>
                         </div>
+                        
+                            @if($errors->any())
+                                @foreach($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            @endif
 
                         <form action="{{ route('journalist.store') }}" method="post">
                             @csrf
